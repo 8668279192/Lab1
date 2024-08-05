@@ -1,0 +1,26 @@
+//Create a arraylist of numbers and isolate odd numbers using lambda expression.
+
+
+package abc;
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		// TODO Auto-generated method stub
+		ArrayList<Integer>num=new ArrayList<>();{
+			num.add(10);
+			num.add(15);
+			num.add(11);
+			num.add(20);
+			System.out.println("Odd Number:");
+			num.forEach(n->
+			{
+				if(n%2!=0)
+				{
+					System.out.println(n+" ");
+				}
+			});
+			
+		}
