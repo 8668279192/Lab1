@@ -1,0 +1,21 @@
+package abc;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class StringLengthFilter {
+    public static void main(String[] args) {
+        // Initial list of strings
+        List<String> strings = Arrays.asList("cat", "sat", "mat", "python", "java", "R");
+
+        // Filter strings with length >= 4 and collect them into a new list
+        List<String> filteredStrings = strings.stream()
+                .filter(s -> s.length() >= 4)
+                .collect(Collectors.toList());
+
+        // Print the new list
+        System.out.println("Strings with length >= 4: " + filteredStrings);
+    }
+}
+
