@@ -1,0 +1,57 @@
+package abc;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+class Person {
+    private String name;
+    private int age;
+    private String city;
+
+    public Person(String name, int age, String city) {
+        this.name = name;
+        this.age = age;
+        this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{name='" + name + "', age=" + age + ", city='" + city + "'}";
+    }
+}
+
+public class CustomerAnalysis {
+
+    public static void main(String[] args) {
+        // Sample list of Person objects
+        List<Person> customers = new ArrayList<>();
+        customers.add(new Person("Alice", 25, "New York"));
+        customers.add(new Person("Bob", 30, "Los Angeles"));
+        customers.add(new Person("Charlie", 19, "New York"));
+        customers.add(new Person("David", 17, "Chicago"));
+        customers.add(new Person("Eve", 35, "New York"));
+
+        // Filter and transform the list using Stream API
+        List<Person> filteredCustomers = customers.stream()
+                .filter(person -> person.getAge() > 18) // Filter adults (age > 18)
+                .filter(person -> "New York".equals(person.getCity())) // Further filter by city "New York"
+                .collect(Collectors.toList());
+
+        // Print the filtered list
+        System.out.println("Filtered Customers:");
+        filteredCustomers.forEach(System.out::println);
+    }
+}
+
