@@ -1,0 +1,42 @@
+package abc;
+
+class AverageThread extends Thread {
+    @Override
+    public void run() {
+        int sum = 0;
+        for (int i = 1; i <= 50; i++) {
+            sum += i;
+        }
+        double average = sum / 50.0;
+        System.out.println("Average of first 50 numbers: " + average);
+    }
+}
+
+class SquareThread extends Thread {
+    private int[] arr;
+
+    public SquareThread(int[] arr) {
+        this.arr = arr;
+    }
+
+    @Override
+    public void run() {
+        for (int num : arr) {
+            System.out.println("Square of " + num + ": " + (num * num));
+        }
+    }
+}
+
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        // Create the array
+        int[] arr = {10, 15, 20, 25, 30,40};
+
+        // Create and start the threads
+        Thread avgThread = new AverageThread();
+        Thread squareThread = new SquareThread(arr);
+
+        avgThread.start();
+        squareThread.start();
+    }
+}
